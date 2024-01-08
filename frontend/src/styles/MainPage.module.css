@@ -1,0 +1,52 @@
+/* MainPage.module.css */
+.productItem {
+    position: relative;
+    overflow: hidden;
+    height: 200px; /* Set a fixed height for the product item */
+    margin-bottom: 20px; /* Add margin at the bottom to create space between items */
+  }
+  
+  .productLink {
+    display: block;
+    width: 100%;
+  }
+  
+  .productName {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent; /* Initially transparent background */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    opacity: 0; /* Hide the text initially */
+    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  /* Hover effect for larger screens */
+  .productItem:hover .productName {
+    opacity: 1; /* Show text on hover for larger screens */
+    background-color: rgba(0, 0, 0, 0.7); /* Background only for text */
+  }
+  
+  /* Adjust styles for smaller screens */
+  @media (max-width: 768px) {
+    .productItem {
+      max-width: 50%; /* Display two items per row on smaller screens */
+      flex-basis: 50%;
+      margin-bottom: 20px; /* Add margin at the bottom for smaller screens */
+      padding: 0 10px; /* Add padding on the sides for smaller screens */
+      box-sizing: border-box; /* Include padding in item width */
+    }
+  
+    .productItem:nth-child(n+7) {
+      display: none; /* Hide items starting from the 7th item (index 7) */
+    }
+  
+    .productItem:hover .productName {
+      opacity: 0; /* Hide text on hover for smaller screens */
+      background-color: transparent; /* Remove background color on hover */
+    }
+  }
+  
